@@ -17,8 +17,9 @@ cask "libri" do
 
   app "Libri.app"
 
-  # The shipped signature is invalid and dyld rejects the app at launch, so
-  # re-sign ad hoc and clear quarantine, which Gatekeeper would block.
+  # 1.2.0 links Homebrew's liblzma, which library validation rejects. Re-signing
+  # ad hoc drops the hardened runtime flag. Remove once a release statically
+  # links xz. Clear quarantine, which Gatekeeper would block.
   postflight_steps do
     run "/usr/bin/codesign", args: ["--force", "--deep", "--sign", "-", "Libri.app"], chdir: "{{appdir}}"
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "Libri.app"], chdir: "{{appdir}}"
