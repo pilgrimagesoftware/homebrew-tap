@@ -17,9 +17,10 @@ cask "libri" do
 
   app "Libri.app"
 
-  # Release builds carry an ad-hoc signature unless Developer ID credentials
-  # are set, so Gatekeeper blocks a quarantined copy.
+  # The shipped signature is invalid and dyld rejects the app at launch, so
+  # re-sign ad hoc and clear quarantine, which Gatekeeper would block.
   postflight_steps do
+    run "/usr/bin/codesign", args: ["--force", "--deep", "--sign", "-", "Libri.app"], chdir: "{{appdir}}"
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "Libri.app"], chdir: "{{appdir}}"
   end
 end
