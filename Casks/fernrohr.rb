@@ -1,6 +1,6 @@
 cask "fernrohr" do
-  version "0.17.0"
-  sha256 "7d98f54ccc88a3d20eb794071d10094277a0239de4d4a496ee19eb5d3a1851e8"
+  version "0.18.0"
+  sha256 "20a4a856aafda034252107ea52558a4e784420e8542c12c3e967896dd822707d"
 
   url "https://github.com/pilgrimagesoftware/Fernrohr-App/releases/download/v#{version}/Fernrohr_#{version}_aarch64.dmg"
   name "Fernrohr"
