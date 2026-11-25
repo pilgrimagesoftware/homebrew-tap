@@ -1,6 +1,6 @@
 cask "knot-ai" do
-  version "1.42.0"
-  sha256 "4ce8beca3fca708c3431a4d89b5940b0092885fa076225c4dae87a09b62252d2"
+  version "1.43.0"
+  sha256 "bb1cdf9dad368d3e789ac5fb40083a3708864fa2564088cd0d1fd338a1b7a667"
 
   url "https://github.com/pilgrimagesoftware/Knot-App/releases/download/v#{version}/Knot_#{version}_aarch64.dmg"
   name "Knot"
